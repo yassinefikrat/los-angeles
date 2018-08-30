@@ -1,0 +1,37 @@
+module.exports = {
+
+	name: 'filmsHandler',
+
+	instructions: ['GET ALL FILMS'],
+
+	behavior: (instruction, message) => {
+
+		// test that the message is valid
+		if (!message.replyTo) return {instruction: 'ERROR:GET ALL FILMS', message: 'no replyTo'}
+
+		if (instruction === 'GET ALL FILMS') {
+
+			return {
+				instruction: 'RE:GET ALL FILMS',
+				message: {
+					recipient: message.replyTo,
+					success: true,
+					films: [
+						{title: 'Memento', 	director: 'Christopher Nolan'},
+						{title: 'Heat', 	director: 'Michael Mann'},
+						{title: 'Drive', 	director: 'Nicolas Winding Refn'}
+					]
+				}
+			}
+
+		} else if (instruction === 'FIND FILMS') {
+
+			return {
+				instruction: 'RE:FIND FILMS', 
+				message: {success: false, message: 'under construction'}
+			}
+
+		} else console.log('did not understand')
+	}
+
+}
