@@ -21,13 +21,13 @@ const purge = () => {
 }
 
 module.exports = {
+
+	book,
 	
 	cast,
 
 	broadcast,
 
 	purge,
-
-	book,
 
 }
